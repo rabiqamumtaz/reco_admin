@@ -206,24 +206,23 @@ const Candidates = () => {
                             Last active: {candidate.lastActive}
                           </div>
                         </td>
-                        <td className="px-4 py-2 text-gray-500 text-sm whitespace-nowrap">
+                        <td className="px-6 py-2 text-gray-500 text-sm whitespace-nowrap">
                           {candidate.location}
                         </td>
-                        <td className="px-4 py-2">
-                          <div className="flex flex-wrap gap-1">
-                            {candidate.skills.map((skill, index) => (
+                        <td className="px-6 py-2 text-sm text-gray-600 relative group cursor-default">
+                          <span className=" py-1 text-xs p-2 font-semibold rounded-full text-green-500 bg-green-100 hover:text-green-800 hover:bg-green-300 whitespace-nowrap">
+                            {candidate.skills.length} skill
+                            {candidate.skills.length > 1 ? "s" : ""}
+                          </span>
+                          <div className="absolute z-10 top-full mt-1 left-0 hidden group-hover:flex bg-white border border-gray-200 shadow-md rounded p-2 flex-wrap gap-1 w-52">
+                            {candidate.skills.map((skill, i) => (
                               <span
-                                key={index}
-                                className="px-4 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800"
+                                key={i}
+                                className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs font-medium"
                               >
                                 {skill}
                               </span>
                             ))}
-                            {candidate.additionalSkills > 0 && (
-                              <span className="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
-                                +{candidate.additionalSkills}
-                              </span>
-                            )}
                           </div>
                         </td>
                         <td className="px-4 py-2 text-gray-500 text-xs whitespace-break">
