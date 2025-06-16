@@ -6,11 +6,21 @@ import {
   CardHeader,
   Typography,
   TextField,
+  InputAdornment,
   Divider,
   Chip,
   Box,
 } from "@mui/material";
 import { Save, Building } from "lucide-react";
+import { CiMail } from "react-icons/ci";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
+import { CiGlobe } from "react-icons/ci";
+import { LiaUsersCogSolid } from "react-icons/lia";
+import { LiaIndustrySolid } from "react-icons/lia";
+import { MdDriveFileRenameOutline } from "react-icons/md";
+import { IoIosSearch } from "react-icons/io";
+import { LuUserRoundPlus } from "react-icons/lu";
 
 const Company_Setting = () => {
   const [companyInfo, setCompanyInfo] = useState({
@@ -74,25 +84,42 @@ const Company_Setting = () => {
             {/* Company Name and Industry */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <TextField
+                id="company-name"
                 label="Company Name"
                 placeholder="TechRecruit Solutions"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, name: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LiaUsersCogSolid />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <TextField
+                id="industry"
                 label="Industry"
                 placeholder="Recruitment & Staffing"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, industry: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LiaIndustrySolid />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </div>
 
             {/* Description */}
             <TextField
+              id="description"
               label="Description"
               placeholder="Leading recruitment platform connecting top talent with innovative companies."
               multiline
@@ -101,63 +128,116 @@ const Company_Setting = () => {
               onChange={(e) =>
                 setCompanyInfo({ ...companyInfo, description: e.target.value })
               }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <MdDriveFileRenameOutline className="mb-17" />
+                  </InputAdornment>
+                ),
+              }}
             />
 
             {/* Contact Email and Phone */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 lg:mt-5">
               <TextField
+                id="email"
                 label="Contact Email"
                 placeholder="contact@techrecruit.com"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, email: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CiMail />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <TextField
+                id="phone"
                 label="Phone Number"
                 placeholder="+1 (555) 123-4567"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, phone: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <FaPhoneAlt />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </div>
 
             {/* Address */}
             <TextField
+              id="address"
               label="Address"
               placeholder="123 Business Ave, Suite 100, San Francisco, CA 94105"
               fullWidth
               onChange={(e) =>
                 setCompanyInfo({ ...companyInfo, address: e.target.value })
               }
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <IoLocationSharp />
+                  </InputAdornment>
+                ),
+              }}
             />
 
             {/* Website / Founded / Employees */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2 lg:mt-5">
               <TextField
+                id="website"
                 label="Website"
                 placeholder="https://www.techrecruit.com"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, website: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CiGlobe />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <TextField
+                id="founded"
                 label="Founded"
-                placeholder="2018"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, founded: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <IoIosSearch />
+                    </InputAdornment>
+                  ),
+                }}
               />
               <TextField
+                id="employees"
                 label="Employee Count"
-                placeholder="50-100"
                 fullWidth
                 onChange={(e) =>
                   setCompanyInfo({ ...companyInfo, employees: e.target.value })
                 }
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LuUserRoundPlus />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </div>
 
@@ -237,6 +317,7 @@ const Company_Setting = () => {
               <h4 className="font-medium pt-4">System Configuration</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <TextField
+                  id="retention"
                   label="Data Retention (Days)"
                   type="number"
                   fullWidth
@@ -249,6 +330,7 @@ const Company_Setting = () => {
                   }
                 />
                 <TextField
+                  id="session"
                   label="Session Timeout (Minutes)"
                   type="number"
                   fullWidth
